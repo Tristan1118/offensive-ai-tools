@@ -65,11 +65,17 @@ A JSON list of test cases. See `examples/example_prompts.json`.
 
 ## Running
 
-Edit `run.py` to instantiate your target subclass, then:
+Put your subclass in `targets/` (gitignored, so engagement details stay
+local), then point `run.py` at it via `--target module.path:ClassName`:
 
 ```
-python run.py --dataset path/to/cases.json --results results/run.jsonl
+python run.py --target targets.acme:AcmeChat \
+              --dataset path/to/cases.json \
+              --results results/run.jsonl
 ```
+
+Default `--target` is `examples.echo_target:EchoTarget` for smoke testing.
+You should not need to edit `run.py` itself.
 
 Multi-turn cases are skipped automatically against targets that don't implement
 `send_multi_turn`. Each result row is a JSON object with `verdict` in
