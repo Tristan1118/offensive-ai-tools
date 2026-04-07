@@ -1,0 +1,12 @@
+[project]
+name = "ai-pentest"
+version = "0.1.0"
+description = "Skeleton for automating AI/chatbot pentesting workflows"
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.31",
+    "anthropic>=0.39",
+]
+
+[tool.setuptools.packages.find]
+include = ["ai_pentest*"]
